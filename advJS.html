@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JS</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+        integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!--Header section-->
+    <header>
+        <!--Heading-->
+        <h1 class="titleHeader">Advanced JavaScript</h1>
+        <!--Nav bar-->
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Extension</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="advjs" class="mycontainer">
+                <p><b>Statement of authenticity</b> <br>
+                        I confirm that:
+                        <ul>
+                            <li> This is an original assessment and is entirely my own work.</li>
+                            <li>It contains no material previously published or written by another person or myself except where
+                                    due acknowledgement is made in the text.</li>
+                            <li>No material which to a substantial extent, has been submitted for any other academic course, is
+                                    included without acknowledgement.</li>
+                        </ul>
+                        </p>
+            <div class="jsDemo">
+                <h2>Date Picker</h2>
+                <p>Use a date picker tool for entering the purchase date and repair date</p>
+                <br>
+                <label for="datepick">Date:</label>
+                <input type="text" name="datepick" id="datepick">
+            </div>
+            <div class="jsDemo">
+                    <h2>Drag-and-Drop</h2>
+                    <p> A Drag and drop for the courtsy phone table</p>
+                    <br>
+                    <div id="drop1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <img src="images/phone.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="100" height="100">
+                    </div>
+                    <div id="drop2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                   
+                    <div class="clearfix"></div>
+            </div>
+            <div class="jsDemo">
+                    <h2>HTML Geolocation </h2>
+                    <p>Show the shop location on Google Map</p>
+                    <p>Possibly calculate the distance between the users location to the shop location</p>
+                    <p>Click the button to get your coordinates.</p>
+                    <br>
+                    <button onclick="getLocation()">Get current location</button>
+                    <p id="locationDemo"></p>
+            </div>
+            <div class="jsDemo">
+                    <h1>Search</h1>
+                    <p>Add a Search feature on FAQs page using filter() method that will help users find what they are looking for.</p>
+                    <br>
+                    <label>Search: </label>
+                    <input type="text" id="searchInput">
+                    <input type="button" value="search" onclick="searchFunction()">
+                    <p id="searchResult"></p>
+            </div>
+            <div class="jsDemo">
+                <h2>File Upload</h2>
+                <p>Users can upload an image of their broken mobile phone</p>
+                <br>
+                <form runat="server">
+                        <input type="file" id="myFile" >
+                        <img id="uploaded" src="#" alt="your image" />
+                </form>
+                
+            </div>
+      
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Advanced Web Design, Copyright &copy; 2019</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+
+</html>

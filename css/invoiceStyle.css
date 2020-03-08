@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    color: black;
+    padding: 2em 2em;
+    
+}
+
+header {
+    padding: 3em 2em;
+    background-color: gray;
+    grid-template-rows: auto;
+    display: grid;
+    grid-row:1;
+}
+
+
+
+#due{
+    text-align: right;
+    grid-row: 1;
+}
+
+#invoiceTitle{
+    text-align: left;
+    grid-row: 1;
+}
+
+
+.invoicedocument {
+    border: 1px solid black;
+    margin-right: 3em;
+    margin-left: 3em;
+    
+  }
+/* creates one row for customerinfo and jobinfo */
+#topInfo{
+    grid-template-rows: auto;
+    display: grid;
+    grid-row: 1;
+    border-bottom: 1px solid black;
+    padding: 1em;
+} 
+/* creates one row for footerAddress and footerContact */
+#bottomInfo{
+    grid-template-rows: auto;
+    display: grid;
+    grid-row: 1;
+    padding: 1em;
+} 
+/* Customer Information */
+#customerInfo{
+    
+    text-align: left;
+    grid-row:1;
+    display: inline;
+    
+}
+/* Job Information */
+#jobInfo{
+    margin-left: 42.5%;
+    grid-row:1;
+    display: inline;
+
+}
+/* Repair Information */
+#repairInfo{
+    /* grid-column-start: 1;
+    grid-column-end: -1; */
+    display: inline;
+    margin-right: 75%;
+}
+/* Loan Information */
+#deviceLoanInfo{
+    margin-right: 75%;
+    
+}
+/* Loan table styling */
+th,td {
+    border: 1px solid black;
+    border-spacing: 0;
+    text-align: center;
+    padding: 1em;
+    
+}
+table{
+    border: 1px solid black;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+/* Costings Information */
+#costInfo{
+    display: inline;
+    margin-left: 70%;
+}
+
+label,p{
+    display: inline;
+    padding-top: 1em;
+}
+
+footer {
+    min-height: 10vh;
+    border-top: 1px solid black;
+    padding: 2em;
+    grid-template-rows: auto;
+    display: grid;
+    grid-row:1;
+
+}
+
+#footerAddress{
+    margin-right: 62.5%;
+    text-align: left;
+    grid-row:1;
+}
+
+#footerContact{
+    
+    grid-row:1;
+    margin-left: 62.5%;
+}

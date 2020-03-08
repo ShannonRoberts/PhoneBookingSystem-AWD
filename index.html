@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Phone Fix Booking System</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<link href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" rel="stylesheet">
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+		integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+	<!--Header section-->
+	<header>
+		<!--Heading-->
+		<h1 class="titleHeader">Phone Fix Booking System</h1>
+		<!--Nav bar-->
+		<nav class="menu">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="advJS.html">Extension</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!--Main section-->
+	<main>
+		<!--Phone booking repair form-->
+		<form name="repairForm" id="repairForm">
+			<div class="formLayout">
+				<!--Section 1: Customer Details -->
+				<section class="customerDetailsSection">
+					<div class="mycontainer">
+
+						<h1>Customer Details</h1>
+
+						<div class="gridItem">
+							<fieldset>
+								<legend>Customer Type *</legend>
+								<label>Consumer</label>
+								<input type="radio" id="consumer" value="consumer" checked="checked"
+									onchange="customerTypeConsumer()"><br>
+								<label>Business</label>
+								<input type="radio" id="business" value="business" onchange="customerTypeBusiness()">
+							</fieldset>
+
+							<label for="title">Title:*</label><br>
+							<select id="title" name="title">
+								<option>Mr.</option>
+								<option>Mrs.</option>
+								<option>Ms.</option>
+								<option>Miss.</option>
+								<option>Dr.</option>
+							</select>
+
+							<label for="fName">First Name:*</label><br>
+							<input type="text" id="fName" name="fName">
+
+							<label for="lName">Last Name:*</label><br>
+							<input type="text" id="lName" name="lName">
+
+							<label for="street">Street:*</label><br>
+							<input type="text" id="street" name="street">
+
+							<label for="suburb">Suburb:*</label><br>
+							<input type="text" id="suburb" name="suburb">
+
+							<label for="city">City:*</label><br>
+							<input type="text" id="city" name="city">
+
+							<label for="postcode">Postcode:*</label><br>
+							<input type="text" id="postcode" name="postcode">
+
+							<label for="phoneNumber">Phone Number:*</label><br>
+							<input type="text" id="phoneNumber" name="phoneNumber">
+
+							<label for="email">Email:*</label><br>
+							<input type="text" id="email" name="email">
+						</div>
+					</div>
+				</section>
+
+				<!--Section 2: Repair Details-->
+				<section class="repairDetailsSection">
+					<div class="mycontainer">
+						<h2>Repair Details</h2>
+
+						<div class="gridItem">
+							<label for="purchaseDate">Purchase Date:*</label><br>
+							<input type="text" id="purchaseDate" name="purchaseDate" onchange="validateWarranty()">
+
+							<label for="repairDate">Repair Date:*</label><br>
+							<input type="text" id="repairDate" name="repairDate">
+
+							<fieldset>
+								<legend>Under Warranty</legend>
+								<p>Warranty: <input type="checkbox" id="warranty" name="warranty" value="warranty"  onchange="updateCosts()" disabled></p>
+							</fieldset>
+
+							<label for="imei">IMEI Number:*</label><br>
+							<input type="text" id="imei" name="imei">
+
+							<label for="makeSelect">Make:*</label><br>
+							<select id="makeSelect" name="makeSelect">
+								<option>Apple</option>
+								<option>LG</option>
+								<option>Motorola</option>
+								<option>Nokia</option>
+								<option>Samsung</option>
+								<option>Sony</option>
+								<option>Other</option>
+							</select>
+
+							<label for="modelNumber">Model Number:</label><br>
+							<input type="text" id="modelNumber" name="modelNumber">
+
+							<label for="faultSelect">Fault Category:*</label><br>
+							<select id="faultSelect" name="faultSelect">
+								<option value="battery">Battery</option>
+								<option value="charging">Charging</option>
+								<option value="screen">Screen</option>
+								<option value="sd-storage">SD-Storage</option>
+								<option value="software">Software</option>
+								<option value="other">Other</option>
+							</select>
+
+							<label for="description">Description:*</label><br>
+							<textarea name="description" id="description" rows="10"></textarea>
+						</div>
+					</div>
+				</section>
+
+
+				<!--Section 3: Courtesy phone-->
+				<section class="courtesyPhoneSection">
+					<div class="mycontainer">
+						<h2>Courtesy Phone</h2>
+						<div class="gridItem">
+
+							<label for="itemSelect">Item Type:</label><br>
+
+							<select id="itemSelect" name="itemSelect">
+								<option value="none">None</option>
+								<option value="iPhone">iPhone</option>
+								<option value="otherPhone">Samsung</option>
+								<option value="charger">Charger</option>
+							</select>
+							<input type="button" value="Add" onclick="addItem()">
+
+							<!-- Phone Table -->
+							<table id="phoneTable">
+								<tr>
+									<th>Item</th>
+									<th>Cost</th>
+								</tr>
+								<tr>
+									<td name="phone">Phone</td>
+									<td id="phonecost">$0</td>
+								</tr>
+								<tr>
+									<td name="charger">Charger</td>
+									<td id="chargercost">$0</td>
+								</tr>
+							</table>
+
+						</div>
+					</div>
+
+				</section>
+
+				<!--Section 4: Cost section-->
+				<section class="costSection">
+					<div class="mycontainer">
+						<h2>Cost</h2>
+						<div class="gridItem">
+
+							<label for="bond">Bond</label><br>
+							<input type="text" id="bond" name="bond" onkeypress="return false;" />
+
+							<label for="serviceFee">Service Fee:</label><br>
+							<input type="text" id="serviceFee" name="serviceFee" onkeypress="return false;" />
+
+							<label for="total">Total:</label><br>
+							<input type="text" id="subtotal" name="subtotal" onkeypress="return false;" />
+
+							<label for="gst">GST:</label><br>
+							<input type="text" id="gst" name="gst" onkeypress="return false;" />
+
+							<label for="totalGST">Total(+GST):</label><br>
+							<input type="text" id="totalGST" name="totalGST" onkeypress="return false;" />
+						</div>
+					</div>
+
+				</section>
+
+				<!--Section 5: Buttons section-->
+				<section class="buttonSection">
+					<div class="mycontainer">
+						<input type="reset" value="Reset">
+						<input type="submit" value="Submit">
+						<input type="button" value="FAQ" onclick="window.location.href='faqs.html'">
+					</div>
+				</section>
+			</div>
+		</form>
+	</main>
+
+	<!--Footer section -->
+	<footer>
+		<p>Advanced Web Design, Copyright &copy; 2019</p>
+	</footer>
+
+	<script src="js/script.js"></script>
+
+</body>
+
+</html>

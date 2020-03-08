@@ -1,0 +1,271 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+/*Use CSS variables for colors */
+:root {
+	--main-color: #e3fcf6;
+	--header-color: #142440;
+	--nav-color: #6aa9ab;
+	--customer-detail-color: #f2dfbf;
+	--repair-detail-color: #e6fcfc;
+	--courtesy-phone-color: #6aa9ab;
+	--cost-section-color: #e6866e;
+	--button-section-color: #e6866e;
+	--footer-color: #142440;
+}
+
+body {
+	font-size: 1em;
+	background-color: var(--main-color);
+}
+
+header {
+	background-color: var(--header-color);
+	min-height: 20vh;
+	display: block;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*Nav bar and header styles*/
+header nav ul li {
+	display: block;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	background-color: var(--nav-color);
+	padding: 0.5em;
+}
+
+header nav ul li a {
+	text-decoration: none;
+	color: white;
+	font-weight: normal;
+}
+
+header .titleHeader {
+	padding: 2em;
+}
+
+main {
+	background-color: var(--main-color);
+}
+
+/*Customer details section*/
+.customerDetailsSection {
+	background-color: var(--customer-detail-color);
+	min-height: 30vh;
+}
+
+/*Repair details section*/
+.repairDetailsSection {
+	background-color: var(--repair-detail-color);
+	min-height: 30vh;
+}
+
+/*Courtesy phone section*/
+.courtesyPhoneSection {
+	background-color: var(--courtesy-phone-color);
+	min-height: 15vh;
+}
+
+/*Cost section*/
+.costSection {
+	background-color: var(--cost-section-color);
+	min-height: 20vh;
+}
+
+/*Button section*/
+.buttonSection {
+	background-color: var(--button-section-color);
+	min-height: 7vh;
+	text-align: center;
+	padding: 0.5em;
+}
+
+/* Used for genral formatting */
+.mycontainer {
+	padding: 1em 2em;
+	line-height: 2em;
+}
+
+label {
+	float: left;
+}
+
+/*sets select and button size*/
+form select, input[type=text], textarea, input[type=button], input[type=reset], input[type=submit], input[type=date] {
+	width: 100%;
+	padding: 0.5em;
+}
+
+/*styles for table*/
+table {
+	border-collapse: collapse;
+	border: 1px solid;
+	border-spacing: 0;
+	width: 100%;
+	border: 1px solid #ddd;
+}
+
+th, td {
+	text-align: left;
+	padding: 1em;
+	border: 1px solid;
+}
+
+th {
+	background-color: grey;
+	text-align: center;
+}
+
+td {
+	background-color: lightgrey;
+}
+
+/* Styles for drag and drop */
+#drop1, #drop2 {
+	float: left;
+	width: 100px;
+	height: 135px;
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+/* question and answer style */
+#qa {
+	background-color: #fcf0e3;
+	margin: 1em;
+	padding: 2em 1em 1em 1em;
+}
+
+/* style for each advanced js demo */
+.jsDemo {
+	background-color: #fcf0e3;
+	margin: 1em;
+	padding: 2em 1em 1em 1em;
+}
+
+#advjs input[type="text"] {
+	width: 25%;
+}
+
+#advjs input[type="button"] {
+	width: 8em;
+}
+
+footer {
+	background-color: var(--footer-color);
+	min-height: 3em;
+	color: white;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*-------------------------------------------------------*/
+/*Styles for Tablets */
+
+@media screen and (min-width: 600px) {
+	/*Make navbar in horizontal*/
+	header nav ul {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		/*Create 2 equal columns*/
+		grid-gap: 0.3em;
+	}
+	header nav ul li {
+		display: block;
+	}
+	.mycontainer {
+		width: 80%;
+		margin-right: 10%;
+		margin-left: 10%;
+	}
+}
+
+/*--------------------------------------------------------*/
+/*Styles for Desktop */
+
+@media screen and (min-width: 1025px) {
+	header {
+		/*Grid of 3 columns*/
+		display: grid;
+		grid-template-areas: 'titleHeader titleHeader menu';
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	.titleHeader {
+		grid-area: titleHeader;
+	}
+	.menu {
+		grid-area: menu;
+	}
+	/*Layout for form*/
+	.formLayout {
+		display: grid;
+		/*3 Columns and 3 Rows*/
+		grid-template-areas: 'customerDetailsArea repairDetailsArea courtesyPhoneArea' 'customerDetailsArea repairDetailsArea costSectionArea' 'buttonSectionArea buttonSectionArea buttonSectionArea';
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+	/*set the areas to each section */
+	.customerDetailsSection {
+		grid-area: customerDetailsArea;
+	}
+	.repairDetailsSection {
+		grid-area: repairDetailsArea;
+	}
+	.courtesyPhoneSection {
+		grid-area: courtesyPhoneArea;
+	}
+	.costSection {
+		grid-area: costSectionArea;
+	}
+	.buttonSection {
+		grid-area: buttonSectionArea;
+	}
+	.buttonSection input {
+		width: 10%;
+	}
+	.mycontainer {
+		width: 90%;
+		margin-right: 5%;
+		margin-left: 5%;
+	}
+	.gridItem {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		grid-gap: 1em;
+	}
+	.gridItem fieldset {
+		grid-column-start: 1;
+		grid-column-end: 8;
+	}
+	.gridItem label {
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+	.gridItem input[type=text], input[type=date], .gridItem select, .gridItem textarea {
+		grid-column-start: 3;
+		grid-column-end: 8;
+	}
+	.gridItem table {
+		grid-column-start: 1;
+		grid-column-end: 8;
+	}
+	.gridItem input[type=button] {
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+}
